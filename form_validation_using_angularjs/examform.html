@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+
+
+<body ng-app="examFormApp" ng-controller="examFormController">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Enterence Test Exam Form</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <form name="myform">
+            <div class="personal-info">
+                <span>Personal Information</span>
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput">First Name</label>&nbsp;<span class="text-danger" ng-show="myform.firstname.$invalid && myform.firstname.$touched">*</span>
+                        <input type="text" class="form-control form-control-sm" name="firstname" placeholder="First name" ng-model="form.firstname" required>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Last Name</label>&nbsp;<span class="text-danger" ng-show="myform.lastname.$invalid && myform.lastname.$touched">*</span>
+                        <input type="text" class="form-control form-control-sm" name="lastname" placeholder="Last name" ng-model="form.lastname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput">Father's Name</label>&nbsp;<span class="text-danger" ng-show="myform.fathername.$invalid && myform.fathername.$touched">*</span>
+                        <input type="text" class="form-control form-control-sm" name="fathername" placeholder="Father's name" ng-model="form.fathername" required>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Mother's Name</label>&nbsp;<span class="text-danger" ng-show="myform.mothername.$invalid && myform.mothername.$touched">*</span>
+                        <input type="text" class="form-control form-control-sm" name="mothername" placeholder="Mother's name" ng-model="form.mothername" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">Gender</label>&nbsp;<span class="text-danger" ng-show="myform.gender.$invalid && myform.gender.$touched">*</span>
+                        <select class="form-control form-control-sm" name="gender" id="exampleFormControlSelect1" ng-model="form.gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Phone No</label>&nbsp;<span class="text-danger" ng-show="myform.phoneno.$invalid && myform.phoneno.$touched">*</span>
+                        <input type="text" class="form-control form-control-sm" name="phoneno" placeholder="Phone no." maxlength="10" ng-model="form.phoneno" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">Cast Category</label>&nbsp;<span class="text-danger" ng-show="myform.category.$invalid && myform.category.$touched">*</span>
+                        <select class="form-control form-control-sm" name="category" id="exampleFormControlSelect1" ng-model="form.category" required>
+                            <option value="obc">OBC</option>
+                            <option value="sc">SC</option>
+                            <option value="st">ST</option>
+                            <option value="ur">UNRESERVED</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Date Of Birth</label>&nbsp;<span class="text-danger" ng-show="myform.dob.$invalid && myform.dob.$touched">*</span>
+                        <input type="date" name="dob" class="form-control form-control-sm" placeholder="Select Date" ng-model="form.dob" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="formGroupExampleInput">Gardian name</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Guardian" ng-model="form.guardianname">
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Blood Group</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" ng-model="form.bloodgroup">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O+">O+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">Minority</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" ng-model="form.minority">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Is Hadicap</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" ng-model="form.handicap">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">Nationality</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" ng-model="form.nationality">
+                            <option value="yes">Hindusm</option>
+                            <option value="no">Shikism</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">Religion</label>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect1" ng-model="form.religion">
+                            <option value="yes">Indian</option>
+                            <option value="no">Others</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="address mb-5">
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">Current Address</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="address" ng-model="form.address">
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">pin code</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="pin code" ng-model="form.pincode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">District</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="District" ng-model="form.district">
+                    </div>
+                    <div class="col">
+                        <label for="formGroupExampleInput">State</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="State" ng-model="form.state">
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
